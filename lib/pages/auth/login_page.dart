@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   String password = "";
   bool _isLoading = false;
   AuthService authService = AuthService();
+  RegExp emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         // check the validation
                         validator: (val) {
-                          return RegExp(
-                                      "r'^.+@[a-zA-Z]+.{1}[a-zA-Z]+(.{0,1}[a-zA-Z]+)")
-                                  .hasMatch(val!)
+                          return emailRegExp.hasMatch(val!)
                               ? null
                               : "Please enter a valid email";
                         },
@@ -188,6 +187,3 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 }
-
-
-//minuto 1:22:59
