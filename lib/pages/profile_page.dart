@@ -3,6 +3,7 @@ import 'package:chatapp_firebase/pages/home_page.dart';
 import 'package:chatapp_firebase/service/auth_service.dart';
 import 'package:chatapp_firebase/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class ProfilePage extends StatefulWidget {
   String userName;
@@ -37,10 +38,14 @@ class _ProfilePageState extends State<ProfilePage> {
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 50),
           children: <Widget>[
-            Icon(
-              Icons.account_circle,
-              size: 150,
-              color: Colors.grey[700],
+            const SizedBox(
+              height: 15,
+            ),
+            ProfilePicture(
+              name: widget.userName,
+              radius: 50,
+              fontsize: 70,
+              random: true,
             ),
             const SizedBox(
               height: 15,
@@ -135,13 +140,14 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(
-              Icons.account_circle,
-              size: 200,
-              color: Colors.grey[700],
+            ProfilePicture(
+              name: widget.userName,
+              radius: 100,
+              fontsize: 100,
+              random: true,
             ),
             const SizedBox(
-              height: 15,
+              height: 25,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
